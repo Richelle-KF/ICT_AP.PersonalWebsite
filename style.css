@@ -1,0 +1,420 @@
+:root {
+  --bg-color: #fef6ff;
+  --text-color: #222;
+  --accent-color: #ff4d8b;
+  --nav-bg: #ffffff;
+  --hover-color: #ff85a1;
+  --bg-color: #fef6ff;
+  --text-color: #222;
+  --accent-color: #ff4d8b;
+  --nav-bg: #ffffff;
+  --hover-color: #ff85a1;
+  --nav-text-color: #ff4d8b;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.4s ease, color 0.4s ease;
+  
+}
+
+body.dark-mode {
+  --bg-color: #1e1e1e;
+  --text-color: #fcd6e9;
+  --nav-bg: #2a2a2a;
+  --bg-color: #1e1e1e;
+  --text-color: #fcd6e9;
+  --nav-bg: #2a2a2a;
+  --nav-text-color: #fcd6e9;
+  
+}
+
+header {
+  background-color: var(--nav-bg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em;
+}
+
+.nav-left,
+.nav-center,
+.nav-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.nav-left {
+  justify-content: flex-start;
+}
+
+.nav-center {
+  justify-content: center;
+}
+
+.nav-right {
+  justify-content: flex-end;
+}
+
+
+nav ul {
+  display: flex;
+  gap: 2em;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--nav-text-color);
+}
+
+.logo.dark-mode{
+  --nav-text-color: #fcd6e9;
+}
+
+nav ul {
+  display: flex;
+  gap: 2em;
+  list-style: none;
+  color:#fd8eb5
+}
+
+nav a {
+  position: relative;
+  text-decoration: none;
+  color: var(--nav-text-color);
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-color);
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--hover-color);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Theme toggle */
+/* NEW Circular Theme Button */
+.theme-button-wrapper {
+  position: relative;
+}
+
+.theme-button {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  transition: background 0.3s ease;
+}
+
+.theme-icon {
+  font-size: 22px;
+  color: white;
+  z-index: 2;
+}
+
+/* Tooltip label */
+.theme-label {
+  position: absolute;
+  right: 60px;              /* tooltip placed left of button */
+  top: 50%;
+  transform: translate(15px, -50%);  /* initially offset right */
+  white-space: nowrap;
+  background: var(--nav-bg);
+  color:#ff4d8b;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* On hover, slide tooltip in */
+.theme-button:hover .theme-label {
+  transform: translate(0, -50%);
+  opacity: 1;
+}
+
+body.dark-mode .theme-label {
+  background: #2a2a2a;
+  color: #fcd6e9;
+}
+
+
+
+/* Main Styles */
+main {
+  padding: 3em 2em;
+  animation: riseUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+@keyframes riseUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Biography Page */
+.bio h1 {
+  text-align: center;
+  color: var(--accent-color);
+
+}
+
+body.dark-mode .bio h1 {
+  color: #fcd6e9;
+}
+
+
+
+
+
+.hello {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: right;
+  color:#ff4d8b;
+  margin: 0;
+  padding: 0;
+}
+body.dark-mode .hello {
+  color: #fcd6e9;
+}
+
+.about h2 {
+  margin-bottom: 0.5em;
+  color:#ff4d8b
+}
+
+body.dark-mode .about h2 {
+  color: #fcd6e9;
+}
+
+.circle-pic {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+/* Character / Gallery Page */
+.images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2em;
+}
+
+.gallery-item {
+  max-width: 300px;
+  text-align: center;
+}
+
+.gallery-item img {
+  width: 100%;
+  border-radius: 12px;
+  transition: transform 0.3s;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.gallery-item img:hover {
+  transform: scale(1.05);
+}
+
+body.dark-mode .gallery-item {
+  color: #fcd6e9;
+}
+
+
+.caption {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  margin-top: 0.5em;
+  color:#fd8eb5
+}
+
+body.dark-mode .images .caption {
+  color: #fcd6e9; /* or any other light pink for dark mode */
+}
+
+
+body {
+  color: var(--text-color);
+}
+body.dark-mode {
+  --text-color: #fcd6e9;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  nav ul {
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+    margin-top: 1em;
+    color:#fd8eb5
+  }
+
+  .images {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+}
+
+.about-me li {
+  color:#ff4d8b; /* Light pink for list text and bullets */
+  font-weight: 500;
+  padding: 0;
+  margin: 0;
+}
+
+/* Bullet list color for dark mode */
+body.dark-mode .about-me li {
+  color: #fcd6e9; /* Softer pink in dark mode */
+}
+
+.bio-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro,
+.about {
+  max-width: 240px;
+  flex: 0 0 auto; /* Don’t let them grow too wide */
+  margin: 0 1em;  /* Small space from the image */
+  text-align: right; /* for .intro */
+}
+
+.about {
+  text-align: left;
+}
+
+.image-wrapper {
+  margin: 0 1em;
+}
+
+/*sparkle mouse effect*/
+.sparkle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background:#fdb5ff;
+  pointer-events: none;
+  animation: sparkle-fade 0.6s linear forwards;
+  z-index: 10000;
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%,
+    68% 57%, 79% 91%, 50% 70%,
+    21% 91%, 32% 57%, 2% 35%,
+    39% 35%)
+}
+
+@keyframes sparkle-fade {
+  0% {
+    opacity: 1;
+    transform: rotate(45deg) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) scale(2);
+  }
+}
+
+/*more about*/
+.more-about {
+  text-align: center;
+  margin-top: 2em;
+}
+
+.more-about h2 {
+  font-size: 1.5rem;
+  color:#ff4d8b;
+  margin-bottom: 0.5em;
+}
+
+.more-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color:#ff4d8b;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+body.dark-mode .more-text {
+  color:#fcd6e9;
+}
+
+body.dark-mode .more-about h2 {
+  color: #fcd6e9; /* or any color you'd like for dark mode */
+}
+body.dark-mode .theme-button {
+  background-color: #fcd6e9; /* or any color you want in dark mode */
+}
+
+
+/*logo in nav bar*/
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--nav-text-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5em; /* spacing between image and text */
+}
+
+.logo-img {
+  width: 50px;     /* adjust as needed */
+  height: 50px;
+  object-fit: contain;
+}

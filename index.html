@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Self Profile</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+  <div class="nav-left">
+    <div class="logo">
+      <img src="hirono 2-Photoroom.png" alt="Logo" class="logo-img">
+      Personal Website</div>
+  </div>
+
+  <div class="nav-center">
+    <ul>
+      <li><a href="index.html">Self Profile</a></li>
+      <li><a href="karakter.html">Character Profile</a></li>
+    </ul>
+  </div>
+
+
+  <div class="nav-right">
+    <div class="theme-button-wrapper">
+      <button class="theme-button" onclick="toggleTheme()">
+        <span class="theme-icon" id="themeIcon">☀️</span>
+        <span class="theme-label" id="themeLabel">Change to dark mode</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+  </header>
+
+ <main class="bio">
+  <h1>Biography</h1>
+  <section class="bio-section">
+    <div class="intro">
+      <p class="hello">Hi there,<br>I'm Richelle!</p>
+    </div>
+
+    <div class="image-wrapper">
+      <img src="me.png" alt="Addy" class="circle-pic">
+    </div>
+
+    <div class="about">
+      <h2>About Me:</h2>
+      <ul class="about-me">
+        <li>Name: Richelle Kelly</li>
+        <li>School: St. Laurensia</li>
+        <li>Hobby: Reading</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="more-about">
+    <h2>More about Richelle:</h2>
+    <p class="more-text">
+      I am currently an 8th grade student in Santa Laurensia Alam Sutera and I take most interest in the subjects: Mathematics, ICT, PE and photography (CCA)! I have other hobbies aside from reading like listening to music, playing volley🏐 and photography!
+      Some of my current favorite novels is the One of Us is Lying series by Karen M. McManus, which is a young adult thriller mystery, and
+       A Wrinkle in Time by Madeleine L'Engle which is a book with an interesting plotline where a girl sets out to find her dad that is stuck in another dimension. And my favorite photography style is street photography because in my opinion, this 
+       type of photography can be easily mastered and the objects taken in this style can vary from humans, animals too daily objects that we can find around us.
+       During my free time, if I'm not reading or playing volley, I like to spend my time organizing. Whether it's organizing schedules, books or lists of any kind.
+    </p>
+  </section>
+</main>
+
+
+  <script>
+    // Check theme on load
+    window.addEventListener('DOMContentLoaded', () => {
+      const isDark = localStorage.getItem('theme') === 'dark';
+      if (isDark) {
+        document.body.classList.add('dark-mode');
+        document.getElementById('themeIcon').textContent = '🌙';
+        document.getElementById('themeLabel').textContent = 'Change to light mode';
+      }
+    });
+
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+      const icon = document.getElementById('themeIcon');
+      const label = document.getElementById('themeLabel');
+      icon.textContent = isDark ? '🌙' : '☀️';
+      label.textContent = isDark ? 'Change to light mode' : 'Change to dark mode';
+    }
+  </script>
+
+
+  <script>
+  document.addEventListener("mousemove", (e) => {
+    const sparkle = document.createElement("div");
+    sparkle.className = "sparkle";
+    sparkle.style.left = `${e.pageX}px`;
+    sparkle.style.top = `${e.pageY}px`;
+    document.body.appendChild(sparkle);
+
+    setTimeout(() => {
+      sparkle.remove();
+    }, 600); // Match the animation duration
+  });
+</script>
+
+</body>
+</html>

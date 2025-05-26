@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Character Profile</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body.dark-mode h1,
+    body.dark-mode h2,
+    body.dark-mode p,
+    body.dark-mode li,
+    body.dark-mode .caption,
+    body.dark-mode .gallery-item {
+      color: #fcd6e9 !important;
+    }
+  </style>
+
+</head>
+<body>
+  <header>
+    <nav>
+  <div class="nav-left">
+    <div class="logo">Personal Website</div>
+  </div>
+
+  <div class="nav-center">
+    <ul>
+      <li><a href="index.html">Self Profile</a></li>
+      <li><a href="karakter.html">Character Profile</a></li>
+    </ul>
+  </div>
+  
+  <div class="nav-right">
+    <div class="theme-button-wrapper">
+      <button class="theme-button" onclick="toggleTheme()">
+        <span class="theme-icon" id="themeIcon">☀️</span>
+        <span class="theme-label" id="themeLabel">Change to dark mode</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+  </header>
+
+  <main class="gallery">
+    <h1 style="color:#ff4d8b" >Favorite Character: Hirono</h1>
+    <p style="color:#ff4d8b">Hirono is one of my favorite characters because of it's many expressions that is presented through out the Hirono series as well as the attention to detail that is presented in the character itself. The Hirono series are first created in 2021 by Chinese artist Lang for POP MART. The character was inspired by Lang's newborn child, his struggles upon moving to Beijing, and a desire to reflect the hidden emotions that are part of the human experience. Now, there are a total of nine Hirono series for POP MART, one them is the Hirono x Le Petit Prince Series, below are a few of my favorites from this series:</p>
+    <div class="images">
+      <div class="gallery-item">
+        <img src="hlp1-Photoroom.png" alt="Character 1">
+        <p class="caption">The Little Prince from Hirono x Le Petit Prince Series</p>
+      </div>
+      <div class="gallery-item">
+        <img src="kingcropped.png" alt="Character 2">
+        <p class="caption">King from Hirono x Le Petit Prince Series</p>
+      </div>
+      <div class="gallery-item">
+        <img src="hlp2-Photoroom.png" alt="Character 3">
+        <p class="caption">The Fox from Hirono x Le Petit Prince Series</p>
+      </div>
+    </div>
+  </main>
+
+    <script>
+      window.onload = function () {
+        const savedTheme = localStorage.getItem('theme');
+        const isDark = savedTheme === 'dark';
+        if (isDark) {
+          document.body.classList.add('dark-mode');
+        }
+        updateThemeButton(isDark);
+      };
+
+      function toggleTheme() {
+        const isDark = document.body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        updateThemeButton(isDark);
+      }
+
+      function updateThemeButton(isDark) {
+        const icon = document.getElementById('theme-icon');
+        const label = document.getElementById('theme-label');
+        if (icon && label) {
+          icon.textContent = isDark ? '🌙' : '☀️';
+          label.textContent = isDark ? 'Change to light mode' : 'Change to dark mode';
+        }
+      }
+    </script>
+
+    <script>
+  document.addEventListener("mousemove", (e) => {
+    const sparkle = document.createElement("div");
+    sparkle.className = "sparkle";
+    sparkle.style.left = `${e.pageX}px`;
+    sparkle.style.top = `${e.pageY}px`;
+    document.body.appendChild(sparkle);
+
+    setTimeout(() => {
+      sparkle.remove();
+    }, 600); // Match the animation duration
+  });
+</script>
+
+
+</body>
+</html>
